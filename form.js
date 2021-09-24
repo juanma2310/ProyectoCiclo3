@@ -1,35 +1,17 @@
 
 function checkUsername (valor){
-    let estado;
     const expresion = /^[a-zA-Z0-9\_\-]{4,30}$/;
-    if(expresion.test(valor)){
-        estado = true;
-    } else {
-        estado = false;
-    }
-    return estado
+    return expresion.test(valor)
 }
 
 function checkCorreo (valor){
-    let estado;
     const expresion = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9]+\.[a-zA-Z0-9-.]+$/;
-    if(expresion.test(valor)){
-        estado = true;
-    } else {
-        estado = false;
-    }
-    return estado
+    return expresion.test(valor)
 }
 
 function checkContrasena (valor){
-    let estado;
     const expresion = /^.[a-zA-Z0-9]+\d+\w{a-z}+\w{A-Z}/;
-    if(expresion.test(valor)){
-        estado = true;
-    } else {
-        estado = false;
-    }
-    return estado
+    return expresion.test(valor)
 }
 
 function checkConfirmContrasena (valor1, valor2){
