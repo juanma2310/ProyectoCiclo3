@@ -260,3 +260,7 @@ html {
       bottom: 100%;
     }
   }
+
+  #formError1, #formError2, #formError3, #formError4 {
+    color:white;
+  }
