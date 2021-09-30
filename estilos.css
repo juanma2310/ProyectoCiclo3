@@ -61,6 +61,13 @@ html {
     background-color: white;
     margin-bottom: 4px;
 }
+.warnings{
+  width: 200px;
+  text-align: center;
+  margin: auto;
+  color: white;
+  padding-top: 20px;
+}
 
 @media all and (max-width: 480px) {
     .navbar{
@@ -114,7 +121,7 @@ html {
     border-radius: 10px;
   }
   
-  .login-box h2 {
+  .login-box h3 {
     margin: 0 0 30px;
     padding: 0;
     color: #fff;
@@ -259,8 +266,4 @@ html {
     50%,100% {
       bottom: 100%;
     }
-  }
-
-  #formError1, #formError2, #formError3, #formError4 {
-    color:white;
   }
