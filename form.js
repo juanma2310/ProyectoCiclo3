@@ -10,23 +10,22 @@ form.addEventListener("submit", e=>{
     let warnings = ""
     let entrar = false
     let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-    if(user.value.length < 6){
-        warnings += `El nombre no es válido <br>`
-        entrar = true
-    }
+    
+    
+    checkUsername(user.value)
 
     if(!regexEmail.test(email.value)){
-        warnings += `El email no es válido <br>`
+        warnings += `El email no es válido <br><br>`
         entrar = true
     }
 
     if(pass.value.length < 8){
-        warnings += `La contraseña inválida <br>`
+        warnings += `La contraseña es inválida <br><br>`
         entrar = true
     }
 
     if(pass.value != passconf.value){
-        warnings += `Las contraseñas no coinciden <br>`
+        warnings += `Las contraseñas no coinciden <br><br>`
         entrar = true
     }
 
@@ -40,3 +39,35 @@ form.addEventListener("submit", e=>{
         passconf.value = ""
     }
 })
+
+function checkUsername (valor){
+    const expresion = /^[a-zA-Z0-9\_\-]{4,30}$/;
+    if(expresion.test(valor)){
+        warnings += `El usuario no es válido <br><br>`
+        entrar = true
+    }
+    
+    return expresion.test(valor)
+}
+
+function checkCorreo (valor){
+    const expresion = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9]+\.[a-zA-Z0-9-.]+$/;
+    return expresion.test(valor)
+}
+
+function checkContrasena (valor){
+    const expresion = /^.[a-zA-Z0-9]+\d+\w{a-z}+\w{A-Z}/;
+    return expresion.test(valor)
+}
+
+function checkConfirmContrasena (valor1, valor2){
+    let estado;
+    if(valor1 == valor2){
+        estado = true;
+    } else {
+        estado = false;
+    }
+    return estado
+}
+
+module.exports = {checkUsername, checkCorreo, checkContrasena, checkConfirmContrasena}
